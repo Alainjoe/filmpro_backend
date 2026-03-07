@@ -1,0 +1,12 @@
+# Node
+node_modules/
+
+# Env (SECRETS)
+.env
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+npm-debug.log
