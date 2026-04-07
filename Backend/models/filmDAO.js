@@ -5,7 +5,7 @@ const db = require('../config/db'); // pool pg
 const SELECT_FILMS = `
   SELECT
     id,
-    title,
+    realisateurs AS title,
     genre,
     annee_sortie,
     langue_originale,
