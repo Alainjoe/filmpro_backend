@@ -5,7 +5,7 @@ const db = require('../config/db'); // pool pg
 const SELECT_FILMS = `
   SELECT
     id,
-    realisateurs AS title,
+    title,
     genre,
     annee_sortie,
     langue_originale,
@@ -13,7 +13,7 @@ const SELECT_FILMS = `
     acteurs,
     realisateurs,
     available_copies,
-    imgpath AS "imgPath",
+    "imgPath",
     trailer
   FROM films
 `;
@@ -60,7 +60,7 @@ class FilmsDAO {
         f.acteurs,
         f.realisateurs,
         f.available_copies,
-        f.imgpath AS "imgPath",
+        f."imgPath",
         f.trailer,
         COUNT(r.id) AS nb_locations
       FROM films f

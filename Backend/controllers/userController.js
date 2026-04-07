@@ -33,10 +33,11 @@ function setAuthCookie(res, user) {
     process.env.JWT_SECRET,
     { expiresIn: "7d" }
   );
+  const isProd = process.env.NODE_ENV === "production";
   res.cookie("token", token, {
     httpOnly: true,
-    secure: true,
-    sameSite: "none",
+    secure: isProd,
+    sameSite: isProd ? "none" : "lax",
     maxAge: 1000 * 60 * 60 * 24 * 7,
   });
 }
@@ -113,10 +114,11 @@ router.post("/login", (req, res) => {
 
 // DÉCONNEXION
 router.get("/logout", (_req, res) => {
+  const isProd = process.env.NODE_ENV === "production";
   res.clearCookie("token", {
     httpOnly: true,
-    secure: true,
-    sameSite: "none",
+    secure: isProd,
+    sameSite: isProd ? "none" : "lax",
   });
   return res.json({ success: true, message: "Déconnecté." });
 });

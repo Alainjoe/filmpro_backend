@@ -64,10 +64,11 @@ router.put('/', requireAuth, (req, res) => {
 router.delete('/delete', requireAuth, (req, res) => {
   ProfilDAO.deleteAccount(req.user.id, (err, result) => {
     if (err) return res.status(400).json({ success: false, message: err.message });
+    const isProd = process.env.NODE_ENV === "production";
     res.clearCookie("token", {
       httpOnly: true,
-      secure: true,      // ✅ identique à setAuthCookie
-      sameSite: "none",  // ✅ identique à setAuthCookie
+      secure: isProd,
+      sameSite: isProd ? "none" : "lax",
     });
     res.json({ success: true, message: result.message });
   });

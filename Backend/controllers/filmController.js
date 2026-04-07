@@ -11,7 +11,7 @@ function mapFilm(film) {
   return {
     id: film.id,
     title: film.title || film.realisateurs || "Titre inconnu",
-    imgPath: film.imgpath || null,
+    imgPath: film.imgPath || null,
     available_copies: film.available_copies || 0,
     genre: film.genre || "",
     realisateurs: film.realisateurs || "Inconnu",

@@ -152,7 +152,7 @@ class LocationDAO {
   const sql = `
     SELECT 
       f.title, 
-      f.imgpath AS "imgPath",
+      f."imgPath",
       r.rental_date, r.return_date,
       CASE 
         WHEN r.return_date IS NULL THEN 'En cours'
