@@ -16,8 +16,11 @@ app.set("trust proxy", 1);
    CORS
 ========================= */
 const allowedOrigins = [
-   "https://backend-1hwn.onrender.com",
+  "https://backend-1hwn.onrender.com",
   "https://filmpro-frontend.onrender.com",
+  "http://localhost:4200",
+  "http://localhost:5173",
+  "http://localhost:3000",
 ].filter(Boolean);
 
 app.use(
